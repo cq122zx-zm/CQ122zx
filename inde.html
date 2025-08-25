@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆市第122中学校</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 公共容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #92db95;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #7ada7d;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* 英雄区域样式 */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('e0103eae89e5e24a601178fba4cd6a76.jpg') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #15721a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 通用区域样式 */
+        .section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #000000;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #000000;
+        }
+
+        /* 关于重庆市第122中学校区域 */
+        .about {
+            background-color: #fff;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .about-text h3 {
+            color: #000000;
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 项目展示区域 */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* 联系区域样式 */
+        .contact {
+            background-color: #e8f5e9;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            color: #000000;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-card h3 i {
+            margin-right: 10px;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: #76c478;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #4CAF50;
+            transform: translateY(-3px);
+        }
+
+        /* 响应式样式 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #000000;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container container">
+            <div class="logo">
+                <img src="f482cbb37364b9e9ddedb8fbedf8f5cf.jpg" alt="校徽">
+                重庆市第122中学校
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于学校</a></li>
+                <li><a href="#projects">学校服务</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h1>欢迎来到重庆市第122中学校</h1>
+            <p>博学、纯朴、创造、树人 - 培育未来领袖的摇篮</p>
+            <a href="#about" class="btn">了解更多</a>
+        </div>
+    </section>
+
+    <!-- 关于我区域 -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2>关于重庆市第122中学校</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3><i class="fas fa-school"></i> 学校介绍</h3>
+                    <p>重庆市第一二二中学位于重庆北碚区，以"博学、纯朴、创造、树人"为校训，是一所公办的中学。学校致力于为学生提供优质的教育资源和全面的成长环境。</p>
+                    
+                    <h3><i class="fas fa-graduation-cap"></i> 学校校训</h3>
+                    <p>根据我校的办学传统、办学特点、以及我校"广纳人文灵秀，彰显创造激情，开启智慧人生"的办学理念，提炼出学校的校训是"博学、纯朴、创造、树人"。</p>
+                    
+                    <h3><i class="fas fa-book"></i> 博学</h3>
+                    <p>是对同学们学业上的要求：要求同学们在校就读期间，不但要学好书本知识，更重要的还应养成爱书、读书的良好习惯，把读书学习作为自己终身的追求。</p>
+
+                    <h3><i class="fas fa-heart"></i> 纯朴</h3>
+                    <p>是对同学们品德的要求：122中学生有吃苦耐劳、学习刻苦，在人格上纯正、质朴的良好传统。我们要保持好、发扬好这种传统。</p>
+
+                    <h3><i class="fas fa-lightbulb"></i> 创造</h3>
+                    <p>是对同学们努力提高创新和实践能力的要求：我们的办学理念里就有"彰显创造激情、开启智慧人生"的培养人才的目标。</p>
+
+                    <h3><i class="fas fa-tree"></i> 树人</h3>
+                    <p>我们122中学要树什么样的人？我们要树把为学业而甘于奋斗、拼搏、吃苦作为一种无与伦比的高尚享受的人；我们要树干事有强烈的责任意识的人。</p>
+                </div>
+                <div class="about-img">
+                    <img src="8e3bdb8706d6e01844e8a1412a40ecb7.jpg" alt="学校">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示区域 -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>学校服务</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="8e3bdb8706d6e01844e8a1412a40ecb7.jpg" alt="学校概况">
+                    </div>
+                    <div class="project-info">
+                        <h3>学校概况</h3>
+                        <p>学校建筑面积达15000平方米，拥有现代化的教学楼、图书馆、体育馆等设施，为学生提供全面的学习与生活环境。</p>
+                        <a href="https://mp.weixin.qq.com/s/_2FxiYLswfihk9Pnz_rTzg" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="8e3bdb8706d6e01844e8a1412a40ecb7.jpg" alt="校园动态">
+                    </div>
+                    <div class="project-info">
+                        <h3>校园动态</h3>
+                        <p>近期学校举办了运动会、文化节等丰富多彩的活动，旨在培养学生的综合素质和团队协作精神。</p>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="facf8d1f-9403-4cdc-9126-13a997c7c3a7.jpg" alt="家长亲启">
+                    </div>
+                    <div class="project-info">
+                        <h3>家长亲启</h3>
+                        <p>学校高度重视家校沟通，定期开展家长会、家长培训等活动，共同助力学生成长。</p>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>联系我们</h2>
+            <p>有任何问题或合作意向，欢迎随时联系我们</p>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3><i class="fab fa-weixin"></i> 学校微信公众号</h3>
+                    <p>打开微信点右上角的放大镜，在搜索框输入"重庆市第一二二中学校"</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3><i class="fab fa-qq"></i> 学校QQ频道号</h3>
+                    <p>打开QQ点搜索框，在搜索框输入"CQ122zx122"</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3><i class="fas fa-phone"></i> 联系电话</h3>
+                    <p>周琳主任电话: 15111893287</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> 学校地址</h3>
+                    <p>重庆市北碚区龙凤桥街道龙凤二村85号</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>重庆市兼善集团第122中学校</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-qq"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                </div>
+                <p>&copy; 2025 重庆市第122中学校. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // 移动端菜单切换
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                const navHeight = document.querySelector('nav').offsetHeight;
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - navHeight, 
+                        behavior: 'smooth'
+                    });
+
+                    // 移动端菜单点击后关闭
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // 返回顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // GitHub MCP 服务器代码
+        // 这是一个模拟的MCP服务器实现示例
+        class GitHubMCPServer {
+            constructor() {
+                this.name = "重庆122中学GitHub服务";
+                this.version = "1.0.0";
+                this.repositories = [];
+            }
+            
+            // 初始化方法
+            initialize() {
+                console.log("GitHub MCP服务器已初始化");
+                this.loadRepositories();
+            }
+            
+            // 加载学校相关的代码仓库
+            loadRepositories() {
+                // 这里模拟从API获取学校项目仓库
+                this.repositories = [
+                    { name: "school-website", description: "学校官方网站源码" },
+                    { name: "learning-platform", description: "在线学习平台" },
+                    { name: "student-management", description: "学生管理系统" }
+                ];
+            }
+            
+            // 获取仓库列表
+            getRepositories() {
+                return this.repositories;
+            }
+            
+            // 创建新仓库
+            createRepository(name, description) {
+                const newRepo = { name, description };
+                this.repositories.push(newRepo);
+                return newRepo;
+            }
+        }
+
+        // 初始化GitHub MCP服务器
+        const githubServer = new GitHubMCPServer();
+        githubServer.initialize();
+    </script>
+</body>
+</html>
