@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>重庆市第122中学校</title>
+    <title>重庆市第一二二中学校</title>
     <!-- 添加网站图标 -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" type="image/svg+xml">
     <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16 32x32">
@@ -104,7 +104,7 @@
         /* 英雄区域样式 */
         .hero {
             height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('e0103eae89e5e24a601178fba4cd6a76.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('b3a5f2616624fa00fd65d52a299512a0.jpg') center/cover no-repeat;
             color: white;
             display: flex;
             align-items: center;
@@ -207,10 +207,27 @@
             width: 100%;
             max-width: 500px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0.5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
         }
 
-        /* 项目展示区域 */
+        /* 新增：图片网格布局 */
+        .about-images-grid {
+            display: 2grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-images-grid img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0.5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+                /* 项目展示区域 */
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -395,6 +412,10 @@
             .section h2 {
                 font-size: 2rem;
             }
+            
+            .about-images-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -404,7 +425,7 @@
         <div class="nav-container container">
             <div class="logo">
                 <img src="9a673b309ec94b75de90486a2b132831.jpg" alt="校徽">
-                重庆市第122中学校
+                重庆市第一二二中学校
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">首页</a></li>
@@ -421,18 +442,28 @@
     <!-- 英雄区域 -->
     <section id="home" class="hero">
         <div class="hero-content container">
-            <h1>欢迎来到重庆市第122中学校</h1>
+            <h1>重庆市第一二二中学校</h1>
             <p>博学、纯朴、创造、树人 - 培育未来领袖的摇篮</p>
             <a href="#about" class="btn">了解更多</a>
         </div>
     </section>
 
-    <!-- 关于我区域 -->
+    <!-- 关于学校区域 -->
     <section id="about" class="section about">
         <div class="container">
-            <h2>关于重庆市第122中学校</h2>
+            <h2>关于重庆市第一二二中学校</h2>
             <div class="about-content">
                 <div class="about-text">
+                    <h3>重庆市第一二二中学</h3>
+                     <h4>重庆公立中学</h4>
+                      <br/></p>重庆市第一二二中学（简称"122中"），英文名Chongqing No.122 Middle School，是重庆市北碚区教委直属的公办初级中学，以"博学、纯朴、创造、树人"为校训，位于龙凤桥街道龙凤二村85号。学校内设办公室、教导处、德育处、后勤处及安保科五个部门，2022年度财政收支均为1285.85万元，其中教育支出占比68.3%。<br/><br/>学校实施初中义务教育，通过"书香健身操"、远足活动及科技创新项目培养学生综合素质。2024年开展的"与春天相约"远足活动旨在提升学生意志品质与环保意识，信息技术项目获区级奖项。该校重视师资建设，举办"真慧杯"青年教师课堂教学竞赛深化"简约·致真"课堂文化探索，2019年完成15641.40平方米教学楼及辅助用房改扩建项目。2021-2022年累计资助困难学生40人次，执行率达100%。</p>
+                      <br/><p>中文名：</>重庆市第一二二中学</p>
+                      <p>英文名：</>chongqing No.122 middle school</p>
+                      <p>别名：</>122中</p>
+                      <p>训博学：</>纯朴 创造 树人</p>
+                      <p>类别 ：</>公立中学</p>
+                      <p>所属地区: </>中国 重庆市北碚区</p>
+
                     <h3><i class="fas fa-school"></i> 学校介绍</h3>
                     <p>重庆市第一二二中学位于重庆北碚区，以"博学、纯朴、创造、树人"为校训，是一所公办的中学。学校致力于为学生提供优质的教育资源和全面的成长环境。</p>
                     
@@ -452,7 +483,13 @@
                     <p>我们122中学要树什么样的人？我们要树把为学业而甘于奋斗、拼搏、吃苦作为一种无与伦比的高尚享受的人；我们要树干事有强烈的责任意识的人。</p>
                 </div>
                 <div class="about-img">
-                    <img src="8e3bdb8706d6e01844e8a1412a40ecb7.jpg" alt="学校">
+                    <img src="8e3bdb8706d6e01844e8a1412a40ecb7.jpg" alt="学校主楼">
+                    
+                    <!-- 新增的两个图片 -->
+                    <div class="about-images-grid">
+                        <img src="e3fa199a96c2956d664151697a58cd6d.jpg" alt="校园环境">
+                        <img src="94401de90ac8618d64e47a36143a0aed.jpg" alt="学生活动">
+                    </div>
                 </div>
             </div>
         </div>
@@ -475,7 +512,7 @@
                 </div>
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="8e3bdb8706d6e01844e8a1412a40ecb7.jpg" alt="校园动态">
+                        <img src="94401de90ac8618d64e47a36143a0aed.jpg" alt="校园动态">
                     </div>
                     <div class="project-info">
                         <h3>校园动态</h3>
@@ -531,13 +568,14 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>重庆市兼善集团第122中学校</p>
+                <p>重庆市兼善集团第一二二中学校</p>
+                <p>重庆市兼善中学龙凤桥校区</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-weixin"></i></a>
                     <a href="#"><i class="fab fa-qq"></i></a>
                     <a href="#"><i class="fab fa-weibo"></i></a>
                 </div>
-                <p>&copy; 2025 重庆市第122中学校. 保留所有权利.</p>
+                <p>&copy; 2025 重庆市第一二二中学校. 保留所有权利.</p>
             </div>
         </div>
     </footer>
